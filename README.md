@@ -1,6 +1,6 @@
 # Initial
 
-I. Take anywhere
+I. Purpose:
 ---
   
   1. Quickly available configurations I find useful
