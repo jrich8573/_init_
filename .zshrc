@@ -3,10 +3,9 @@ export PATH=$PATH:$PYTHONPATH
 eval "$(scalaenv init -)"
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/jasonrich/.oh-my-zsh
+export ZSH=/.oh-my-zsh
 
 # Path to mysql shell installation.
-export MYSQLPATH=/usr/local/mysql/bin
 export PATH=$PATH:$MYSQLPATH
 
 
@@ -95,8 +94,6 @@ plugins=(git marked2)
 plugins=(git perl)
 # User configuration
 
-export PATH="/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/Users/jasonrich/perl5/perlbrew/bin:/Users/jasonrich/perl5/perlbrew/perls/perl-5.16.0/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/TeX/texbin"
-# export MANPATH="/usr/local/man:$MANPATH"
 
 export PYTHONPATH=/usr/lib/pymodules/python2.7
 export PATH=$PATH:$PYTHONPATH
@@ -111,7 +108,7 @@ export LANG=en_US.UTF-8
  if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
  else
-   export EDITOR='vim'
+   export EDITOR='mvim'
  fi
 
 # Compilation flags
