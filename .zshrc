@@ -109,9 +109,9 @@ export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
  if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='emacs'
+   export EDITOR='vim'
  else
-   export EDITOR='memacs'
+   export EDITOR='vim'
  fi
 
 # Compilation flags
