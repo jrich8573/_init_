@@ -26,7 +26,7 @@
   1. emacs (I use org mode in emacs for tracking TODO's and notes, and I do have the evil package loaded in emacs to emulate vim key bindings). 
   1. My shell of chioce is [oh-my-zsh](http://ohmyz.sh/)
       1. git configured, and thus I rarely utilize GitHub desktop. Thus, configuring git is essential.        
-      __NOTE:__  I have tested this git config on public GitHub and GitHub Enterprise only. I have not tested on GitLab, BitBucker, sourceforge, or any other git based version control application
+      __NOTE:__  I have tested this git config on public GitHub and GitHub Enterprise only. I have not tested on GitLab, BitBucket, sourceforge, or any other git based version control application
   1. Eclipse (for writing Hadoop Mappers and Reducers in Java) 
 
 ### Usage:
