@@ -3,7 +3,7 @@
 
 ### Purpose:
   1. Configurations I find useful
-  1. Feel free to clone, folk, and submit a pull request. 
+  1. Feel free to clone, fork, and submit a pull request. 
   1. Thanks!
 
 ### Shell:
