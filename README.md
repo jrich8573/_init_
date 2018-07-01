@@ -11,7 +11,7 @@
       1. iTerm2 (with oh-my-zsh)
   1. Windows (If I must) 
       1. On Windows I use Babun Unix shell emulator (with oh-my-zsh)
-      1. Some of my fellow engineers are using  , while others are using [Hyper](https://hyper.is). I haven't tested on eiter shell/terminal emulator, and if you have, I would certainly appreciate a pull request 
+      1. Some of my fellow engineers are using [cmder](https://github.com/cmderdev/cmder), while others are using [Hyper](https://hyper.is). I haven't tested on eiter shell/terminal emulator, and if you have, I would certainly appreciate a pull request 
   1. Most if not all Linux distributions (tested on CentOs 7, RHEL 7, Ubuntu 16, and Kali)
       1. I use the terminal packaged with each distribution (with oh-my-zsh)
 
