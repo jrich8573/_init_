@@ -1,0 +1,48 @@
+#!/bin/bash
+
+# cleanUp removes ViM generated backup files (files ending with .un~)
+# Written by: Jason Rich
+# To use, cp the to your /bin directory
+# Ensure that permissions are set for execution.
+# At a minimum: chmod 700 cleanUp
+
+
+# Control Flow:
+#   for loop control run-time
+#   1st if: admin to show number and names of files captured
+#   2nd: translate t
+
+
+
+count=$(ls -al | grep '\~$' | wc -l)
+f=$(ls -a | grep '\~$')
+# f=$(ls -l | find -name '*.un\~')
+answer=_$REPLY
+
+
+
+for i in $count
+do
+    if [[ $count -ge 1 ]];
+    then
+        echo "Number of files to remove: $i"
+        echo "File names to remove: "
+        echo $f
+    fi
+    # user response
+    echo "Would you like to remove $f ?"| tr -d '\012'
+    while read answer # read user's reply
+    do
+        case $answer in
+            Y|y)
+                rm -i $f
+                echo "Removed $count files"
+                ;;
+            N|n)
+                remain=$(ls -A | grep '\~')
+                echo "You did not remove $remain from this directory"
+                ;;
+        esac
+        exit
+    done
+done
