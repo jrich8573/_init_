@@ -38,49 +38,61 @@ au BufNewFile,BufRead *.js, *.html, *.css
 set encoding=utf-8
 
 "let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" install OmniCppComplete like described on http://vim.wikia.com/wiki/C++_code_completion
+" This offers intelligent C++ completion when typing ‘.’ ‘->’ or <C-o>
+" " Load standard tag files
+set tags+=~/.vim/tags/cpp
+set tags+=~/.vim/tags/gl
+set tags+=~/.vim/tags/sdl
+set tags+=~/.vim/tags/qt4
 
+" Install DoxygenToolkit from
 
+let g:DoxygenToolkit_authorName="Jason Rich <jasonrich85@gmail.com>"
+"autocmd! FileType c,cpp,java,php call CSyntaxAfter()
 " set the runtime path to include Vundle and initialize
- set rtp+=~/.vim/bundle/Vundle.vim
- call vundle#begin()
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
+call plug#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
- Plugin 'VundleVim/Vundle.vim'
-
+ Plug 'VundleVim/Vundle.vim'
 " The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
+" Keep Plug commands between vundle#begin/end.
 " plugin on GitHub repo
- Plugin 'tpope/vim-fugitive'
+ Plug 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
- "Plugin 'L9'
+ "Plug 'L9'
 " Git plugin not hosted on GitHub
- Plugin 'git://git.wincent.com/command-t.git'
+ Plug 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
+" Plug 'file:///home/gmarik/path/to/plugin'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
- Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+ Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
- "Plugin 'ascenator/L9', {'name': 'newL9'}
- Plugin 'derekwyatt/vim-scala'
- Plugin 'flazz/vim-colorschemes'
- Bundle 'Valloric/YouCompleteMe'
- Plugin 'tpope/vim-surround'
- Plugin 'salsifis/vim-transpose'
- Plugin 'mmalecki/vim-node.js' 
- Plugin 'tmhedberg/SimpylFold' 
- Plugin 'vim-scripts/indentpython.vim'
- Plugin 'scrooloose/syntastic'
- Plugin 'nvie/vim-flake8'
- "Plugin 'jnurmine/Zenburn'
- "Plugin 'altercation/vim-colors-solarized'
- Plugin 'scrooloose/nerdtree'
- Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
- Plugin 'kien/ctrlp.vim'
+ "Plug 'ascenator/L9', {'name': 'newL9'}
+ Plug 'derekwyatt/vim-scala'
+ Plug 'flazz/vim-colorschemes'
+ Plug 'tpope/vim-surround'
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+ Plug 'salsifis/vim-transpose'
+ Plug 'mmalecki/vim-node.js' 
+ Plug 'tmhedberg/SimpylFold' 
+ Plug 'vim-scripts/indentpython.vim'
+ Plug 'vim-scripts/DoxygenToolkit.vim'
+ Plug 'vim-scripts/dbext.vim'
+ Plug 'scrooloose/syntastic'
+ Plug 'nvie/vim-flake8'
+ "Plug 'jnurmine/Zenburn'
+ "Plug 'altercation/vim-colors-solarized'
+ Plug 'scrooloose/nerdtree'
+" Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+ Plug 'kien/ctrlp.vim'
 
 "python hightlighting
 let python_highlight_all=1
@@ -99,38 +111,30 @@ let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 set clipboard=unnamed
 " set editing-mode vi
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+" All of your Plugs must be added before the following line
+call plug#end()            " required
 filetype plugin indent on    " required
 "To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
 " Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+" :PlugList       - lists configured plugins
+" :PlugInstall    - installs plugins; append `!` to update or just :PlugUpdate
+" :PlugSearch foo - searches for foo; append `!` to refresh local cache
+" :PlugClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
 " see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-"
-""" Pathogen 
-"execute pathogen#infect()
-"syntax on
-"filetype plugin indent on
-
-" rtp for node.js
-" BundleInstall moll/vim-node
+" Put your non-Plug stuff after this line
 
 
 "turn-on line numbers on left side of window
  set number
-" 
+ 
 "change font and size
  set guifont=Consolas:h12:cANSI
-"  
+  
 " change color scheme to slate"  
  colo slate
-"   
-"   "maximize the window on open
+   
+" maximize the window on open
  au GUIEnter * simalt ~x "max window

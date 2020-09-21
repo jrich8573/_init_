@@ -1,19 +1,48 @@
-export PYTHONPATH=/usr/lib/pymodules/python2.7 
-export PATH=$PATH:$PYTHONPATH
+# path to Python 3.X
+export PYTHONPATH3='/Users/jasonrich/anaconda3'
+#export $PYTHONPATH3/bin:$PATH
+
+# path to Python 2.X
+# export PYTHONPATH2='/Users/jasonrich/anaconda2'
+#export PATH="$PYTHONPATH2/bin:$PATH"
+
 eval "$(scalaenv init -)"
 
+# path to cleanup command
+export cleanup="/Users/jasonrich/shell/bash/cleanUp"
+# export PATH=$PATH:$CLEANUP
+
+# path the connection file
+export con="/User/jasonrich/shell/bash/con"
+# export PATH=$PATH:$CON
+
 # Path to your oh-my-zsh installation.
-export ZSH=/.oh-my-zsh
+export ZSH=/Users/jasonrich/.oh-my-zsh
 
 # Path to mysql shell installation.
+export MYSQLPATH=/usr/local/mysql/bin
 export PATH=$PATH:$MYSQLPATH
+
+# Groovy Home
+export GROOVY_HOME=/usr/local/opt/groovy/libexec
+export PATH=$PATH:$GROOVY_HOME
+
+# GOPATH Environment Variable
+export GOPATH="/Users/jasonrich/go"
+# export PATH=$PATH:$GOPATH
+
+#GOROOT Environment Variable
+# export GOROOT="/usr/local/Cellar/go"
+# export PATH=$PATH:$GOROOT
 
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="gallois"
+# ZSH_THEME="oh-my-via/via"
+
+
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -67,11 +96,8 @@ function notify_formatted {
 	bgnotify "$title -- after $3 s" "$2";
 }
 plugins=(git bgnotify)
-source $ZSH/oh-my-zsh.sh  ## existing source call
-
 plugins=(git profile)
 plugins=(git)
-plugins=(git bundler osx rake ruby)
 plugins=(git emacs)
 plugins=(git bundler osx vi-mode)
 plugins=(git bundler osx vim-interaction)
@@ -93,29 +119,37 @@ plugins=(git github)
 plugins=(git marked2)
 plugins=(git perl)
 # User configuration
+fpath=(/usr/local/share/zsh-completions $fpath)
+#export PATH="/usr/include:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/Users/jasonrich/perl5/perlbrew/bin:/Users/jasonrich/perl5/perlbrew/perls/perl-5.16.0/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/TeX/texbin"
+# export MANPATH="/usr/local/man:$MANPATH"
 
+#export PYTHONPATH=/usr/lib/pymodules/python2.7
+#export PATH=$PATH:$PYTHONPATH
 
-export PYTHONPATH=/usr/lib/pymodules/python2.7
-export PATH=$PATH:$PYTHONPATH
-
-
+# default shell
 source $ZSH/oh-my-zsh.sh
 
+# shell runtime environment
+source ~/.shellrc
+
+# path environment
+source ~/.bash_profile
+
+
 # You may need to manually set your language environment
-export LANG=en_US.UTF-8
+#export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
  if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
  else
-   export EDITOR='mvim'
+   export EDITOR='vim'
  fi
 
 # Compilation flags
-export ARCHFLAGS="-arch x86_64"
-
+#export ARCHFLAGS="-arch x86_64"
 # ssh
-export SSH_KEY_PATH="~/.ssh/dsa_id"
+#export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -123,12 +157,44 @@ export SSH_KEY_PATH="~/.ssh/dsa_id"
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zr="vim ~/.zshrc"
-alias ohmy="vim ~/.oh-my-zsh"
-alias h="cd ~/"
-alias l="ls -al"
-alias v="vim"
-alias e="emacs -nw"
-alias q="exit"
-alias c="clear"
-alias x="exec zsh"
+#alias zr="vim ~/.zshrc"
+#alias ohmy="vim ~/.oh-my-zsh"
+#alias h="cd ~/"
+#alias l="ls -al"
+#alias v="vim"
+#alias e="emacs -nw"
+#alias q="exit"
+#alias c="clear"
+#alias x="exec zsh"
+#export PATH="$PYTHONPATH2/bin:$PATH"
+#export PATH="$PYTHONPATH3/bin:$PATH"
+#export PATH="/usr/bin:$PATH"
+#export PATH="/usr/local/sbin:$PATH"
+#export PATH="/usr/local/opt/tomcat@8.0/bin:$PATH"
+export PATH="$PYTHONPATH2/bin:$PYTHONPATH3/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$PATH"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/jasonrich/.sdkman"
+[[ -s "/Users/jasonrich/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/jasonrich/.sdkman/bin/sdkman-init.sh"
+export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"
+export PATH="/usr/local/opt/openssl/bin:$PATH"
+export PATH="/usr/local/opt/sqlite/bin:$PATH"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+export PATH="/usr/local/opt/openssl/bin:$PATH"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/jasonrich/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jasonrich/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/jasonrich/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jasonrich/google-cloud-sdk/completion.zsh.inc'; fi
+#Add Visual Studio Code (code) 
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin/"
+source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
