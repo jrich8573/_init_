@@ -1,0 +1,37 @@
+# ssh commands to hold passward in RAM when shell starts
+
+# starts the ssh-agent as a process (assigning a PID)
+# eval "$(ssh-agent)"
+
+# adds pw in RAM
+# ssh-add
+
+
+# shell aliases
+alias z="vim ~/.zshrc"
+alias ohmy="vim ~/.oh-my-zsh"
+alias h="cd ~/"
+alias l="ls -al"
+alias v="vim"
+alias e="emacs -nw"
+alias q="exit"
+alias c="clear"
+alias x="exec zsh"
+alias o="open ."
+alias mk='make'
+alias mc='make clean'
+
+# docker aliases
+
+
+
+
+
+# vagrant aliases
+
+
+# github aliases
+alias gs="ggpull && ggpush"
+
+# postgres server 
+# launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
