@@ -20,6 +20,7 @@ alias x="exec zsh"
 alias o="open ."
 alias mk='make'
 alias mc='make clean'
+alias jol='java -jar ~/external-jars/jol-cli-0.14-full.jar'
 
 # docker aliases
 

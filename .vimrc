@@ -21,19 +21,21 @@ let g:SimpylFold_docstring_preview=1
 
 au BufNewFile,BufRead *.py
     \ set tabstop=4
-    "\ set softtabstop=4
-    "\ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
+    \| set textwidth=81
+    \| set expandtab
+    \| set autoindent
+    \| set fileformat=unix
 
 au BufNewFile,BufRead *.js, *.html, *.css
     \ set tabstop=2
     \ set softtabstop=2
     \ set shiftwidth=2
 
-
+au BufNewFile,BufRead *.cpp,*.h
+   \ set tabstop=4
+   \| set textwidth=81
+   \| set autoindent
+   \| set fileformat=unix
 
 set encoding=utf-8
 
@@ -60,12 +62,15 @@ call plug#begin()
 
 " let Vundle manage Vundle, required
  Plug 'VundleVim/Vundle.vim'
+ 
 " The following are examples of different formats supported.
 " Keep Plug commands between vundle#begin/end.
 " plugin on GitHub repo
  Plug 'tpope/vim-fugitive'
+"
 " plugin from http://vim-scripts.org/vim/scripts.html
  "Plug 'L9'
+ 
 " Git plugin not hosted on GitHub
  Plug 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
@@ -73,6 +78,7 @@ call plug#begin()
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
  Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
+ 
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
  "Plug 'ascenator/L9', {'name': 'newL9'}
@@ -90,9 +96,29 @@ call plug#begin()
  Plug 'nvie/vim-flake8'
  "Plug 'jnurmine/Zenburn'
  "Plug 'altercation/vim-colors-solarized'
- Plug 'scrooloose/nerdtree'
-" Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+ "Plug 'scrooloose/nerdtree'
+ 
+ "" file system viewer
+ Plug 'preservim/nerdtree'
+ Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
  Plug 'kien/ctrlp.vim'
+ Plug 'octol/vim-cpp-enhanced-highlight'
+ 
+" :Tabularize
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown' "better markdown support
+
+
+" better cooperation with tmux
+Plug 'christoomey/vim-tmux-navigator'
+
+" gutter for marks
+Plug 'kshenoy/vim-signature'
+
+" Vim Plug for switching between companion source files (e.g. .h and .cpp)
+Plug 'derekwyatt/vim-fswitch'
+
+Plug 'rhysd/vim-clang-format'
 
 "python hightlighting
 let python_highlight_all=1
@@ -102,11 +128,12 @@ set t_Co=256
 "if has('gui_running')
 "	  set background=dark
 "	    colorscheme solarized
- "   else colorscheme zenburn
- "     endif
+"   else colorscheme zenburn
+"     endif
 
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
-      
+map <C-n> :NERDTreeToggle<CR>
+map <C-f> :NERDTreeFocus<CR>
 
 set clipboard=unnamed
 " set editing-mode vi
@@ -114,6 +141,7 @@ set clipboard=unnamed
 " All of your Plugs must be added before the following line
 call plug#end()            " required
 filetype plugin indent on    " required
+
 "To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -138,3 +166,9 @@ filetype plugin indent on    " required
    
 " maximize the window on open
  au GUIEnter * simalt ~x "max window
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
