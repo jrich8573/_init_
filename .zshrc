@@ -56,6 +56,7 @@ export ZSH=/Users/jason.rich/.oh-my-zsh
 
 
 
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -204,10 +205,20 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # source ~/.iterm2_shell_integration.zsh
-export PATH="/usr/local/Cellar/python@3.7/3.7.10_3/bin:$PATH"
-source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
+# export PATH="/usr/local/Cellar/python@3.7/3.7.10_3/bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 # export PATH "/usr/bin/gcc:$PATH"
 export PATH="/opt/homebrew/Cellar/openjdk@11/11.0.10/bin:$PATH"
-export PATH="/opt/homebrew/opt/gradle@6/bin:$PATH"
-export PATH="/opt/homebrew/opt/node@12/bin:$PATH"
+# export PATH="/opt/homebrew/opt/gradle@6/bin:$PATH"
+# export PATH="/opt/homebrew/opt/node@12/bin:$PATH"
+
+source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform
+export PATH="/usr/local/opt/python@3.7/bin:$PATH"
+
+
+export DATABRICKS_HOST=https://dbc-88a3d066-4cdb.cloud.databricks.com
+export DATABRICKS_USERNAME=jason.rich@aplaceformom.com
+export DATABRICKS_TOKEN=dapi967a7e2adc6c15227a48f20e56785bbc
