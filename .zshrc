@@ -219,6 +219,4 @@ complete -o nospace -C /usr/local/bin/terraform terraform
 export PATH="/usr/local/opt/python@3.7/bin:$PATH"
 
 
-export DATABRICKS_HOST=https://dbc-88a3d066-4cdb.cloud.databricks.com
-export DATABRICKS_USERNAME=jason.rich@aplaceformom.com
-export DATABRICKS_TOKEN=dapi967a7e2adc6c15227a48f20e56785bbc
+
