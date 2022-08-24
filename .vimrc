@@ -26,21 +26,20 @@ au BufNewFile,BufRead *.py
     \| set autoindent
     \| set fileformat=unix
 
-au BufNewFile,BufRead *.js, *.html, *.css
-    \ set tabstop=2
-    \ set softtabstop=2
-    \ set shiftwidth=2
-
-au BufNewFile,BufRead *.cpp,*.h
-   \ set tabstop=4
-   \| set textwidth=81
-   \| set autoindent
-   \| set fileformat=unix
-
+"au BufNewFile,BufRead *.js, *.html, *.css
+"    \ set tabstop=2
+"    \ set softtabstop=2
+"    \ set shiftwidth=2
+"
+"au BufNewFile,BufRead *.cpp,*.h
+"   \ set tabstop=4
+"   \| set textwidth=81
+"   \| set autoindent
+"   \| set fileformat=unix
+"
 set encoding=utf-8
 
 "let g:ycm_autoclose_preview_window_after_completion=1
-" map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " install OmniCppComplete like described on http://vim.wikia.com/wiki/C++_code_completion
 " This offers intelligent C++ completion when typing ‘.’ ‘->’ or <C-o>
 " " Load standard tag files
@@ -51,66 +50,44 @@ set tags+=~/.vim/tags/qt4
 
 " Install DoxygenToolkit from
 
-let g:DoxygenToolkit_authorName="Jason Rich <jasonrich85@gmail.com>"
+"let g:DoxygenToolkit_authorName="Jason Rich <jasonrich85@gmail.com>"
 "autocmd! FileType c,cpp,java,php call CSyntaxAfter()
 " set the runtime path to include Vundle and initialize
 "set rtp+=~/.vim/bundle/Vundle.vim
-"call vundle#begin()
+
 call plug#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
- Plug 'VundleVim/Vundle.vim'
- 
+Plug 'VundleVim/Vundle.vim'
+Plug 'kevinoid/vim-jsonc' 
+Plug 'hashivim/vim-terraform'
 " The following are examples of different formats supported.
 " Keep Plug commands between vundle#begin/end.
 " plugin on GitHub repo
- Plug 'tpope/vim-fugitive'
-"
-" plugin from http://vim-scripts.org/vim/scripts.html
- "Plug 'L9'
+Plug 'tpope/vim-fugitive'
  
 " Git plugin not hosted on GitHub
- Plug 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-" Plug 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
- Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plug 'git://git.wincent.com/command-t.git'
  
-" Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
- "Plug 'ascenator/L9', {'name': 'newL9'}
- Plug 'derekwyatt/vim-scala'
- Plug 'flazz/vim-colorschemes'
- Plug 'tpope/vim-surround'
-" Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
- Plug 'salsifis/vim-transpose'
- Plug 'mmalecki/vim-node.js' 
- Plug 'tmhedberg/SimpylFold' 
- Plug 'vim-scripts/indentpython.vim'
- Plug 'vim-scripts/DoxygenToolkit.vim'
- Plug 'vim-scripts/dbext.vim'
- Plug 'scrooloose/syntastic'
- Plug 'nvie/vim-flake8'
- "Plug 'jnurmine/Zenburn'
- "Plug 'altercation/vim-colors-solarized'
- "Plug 'scrooloose/nerdtree'
- 
- "" file system viewer
- Plug 'preservim/nerdtree'
- Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
- Plug 'kien/ctrlp.vim'
- Plug 'octol/vim-cpp-enhanced-highlight'
- 
-" :Tabularize
+Plug 'flazz/vim-colorschemes'
+Plug 'tpope/vim-surround'
+Plug 'salsifis/vim-transpose'
+Plug 'tmhedberg/SimpylFold' 
+Plug 'vim-scripts/indentpython.vim'
+Plug 'scrooloose/syntastic'
+Plug 'nvie/vim-flake8'
+" 
+" file system viewer
+Plug 'preservim/nerdtree'
+"Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plug 'kien/ctrlp.vim'
+"Plug 'octol/vim-cpp-enhanced-highlight'
+" 
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown' "better markdown support
-
-
-" better cooperation with tmux
-Plug 'christoomey/vim-tmux-navigator'
 
 " gutter for marks
 Plug 'kshenoy/vim-signature'
@@ -125,18 +102,12 @@ let python_highlight_all=1
 syntax on
 set t_Co=256 
 
-"if has('gui_running')
-"	  set background=dark
-"	    colorscheme solarized
-"   else colorscheme zenburn
-"     endif
 
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 map <C-n> :NERDTreeToggle<CR>
 map <C-f> :NERDTreeFocus<CR>
 
 set clipboard=unnamed
-" set editing-mode vi
 
 " All of your Plugs must be added before the following line
 call plug#end()            " required
@@ -156,16 +127,16 @@ filetype plugin indent on    " required
 
 
 "turn-on line numbers on left side of window
- set number
+set number
  
 "change font and size
- set guifont=Consolas:h12:cANSI
+set guifont=Consolas:h12:cANSI
   
 " change color scheme to slate"  
- colo slate
+color slate
    
 " maximize the window on open
- au GUIEnter * simalt ~x "max window
+au GUIEnter * simalt ~x "max window
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif

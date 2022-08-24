@@ -1,10 +1,10 @@
 # ssh commands to hold passward in RAM when shell starts
 
 # starts the ssh-agent as a process (assigning a PID)
-# eval "$(ssh-agent)"
+eval "$(ssh-agent)"
 
 # adds pw in RAM
-# ssh-add
+ssh-add
 
 
 # shell aliases

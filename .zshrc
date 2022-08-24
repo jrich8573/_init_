@@ -1,6 +1,13 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
 #if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
 #  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 #fi
@@ -9,25 +16,25 @@
 
 
 # path to Python 3.X
-# export PYTHONPATH3='/Users/jason.rich/anaconda'
+# export PYTHONPATH3='/Users/jrich/anaconda'
 # export $PYTHONPATH3/bin:$PATH
 
 # path to Python 2.X
-# export PYTHONPATH2='/Users/jason.rich/anaconda2'
+# export PYTHONPATH2='/Users/jrich/anaconda2'
 #export PATH="$PYTHONPATH2/bin:$PATH"
 
 # eval "$(scalaenv init -)"
 
 # path to cleanup command
-# export cleanup="/Users/jason.rich/shell/bash/cleanUp"
+# export cleanup="/Users/jrich/shell/bash/cleanUp"
 # export PATH=$PATH:$CLEANUP
 
 # path the connection file
-# export con="/User/jason.rich/shell/bash/con"
+# export con="/User/jrich/shell/bash/con"
 # export PATH=$PATH:$CON
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/jason.rich/.oh-my-zsh
+export ZSH=/Users/jrich/.oh-my-zsh
 
 # Path to mysql shell installation.
 # export MYSQLPATH=/usr/local/mysql/bin
@@ -43,9 +50,9 @@ export ZSH=/Users/jason.rich/.oh-my-zsh
 # export PATH=$PATH:$GOROOT/bin
 
 # GOPATH Environment Variable
-# export GOPATH=/Users/jason.rich/go
+# export GOPATH=/Users/jrich/go
 # export PATH=$PATH:$GOPATH/bin
-# export GOPATH=$GOPATH:/Users/jason.rich/code/go
+# export GOPATH=$GOPATH:/Users/jrich/code/go
 
 
 # Set name of the theme to load.
@@ -55,9 +62,11 @@ export ZSH=/Users/jason.rich/.oh-my-zsh
 # ZSH_THEME="oh-my-via/via"
 
 
+# C++ Boost root
+BOOST_ROOT=/usr/local/boost_1_79_0
+export PATH="$BOOST_ROOT/boost:$PATH"
 
-
-# Uncomment the following line to use case-sensitive completion.
+ #Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
@@ -181,8 +190,8 @@ source ~/.shellrc
 export PATH="$PYTHONPATH3/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$PATH"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-#export SDKMAN_DIR="/Users/jason.rich/.sdkman"
-#[[ -s "/Users/jason.rich/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/jason.rich/.sdkman/bin/sdkman-init.sh"
+#export SDKMAN_DIR="/Users/jrich/.sdkman"
+#[[ -s "/Users/jrich/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/jrich/.sdkman/bin/sdkman-init.sh"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 # eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"
@@ -195,10 +204,10 @@ export PATH="/usr/local/opt/openssl/bin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # The next line updates PATH for the Google Cloud SDK.
-#if [ -f '/Users/jason.rich/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jason.rich/google-cloud-sdk/path.zsh.inc'; fi
+#if [ -f '/Users/jrich/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jrich/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-#if [ -f '/Users/jason.rich/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jason.rich/google-cloud-sdk/completion.zsh.inc'; fi
+#if [ -f '/Users/jrich/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jrich/google-cloud-sdk/completion.zsh.inc'; fi
 #Add Visual Studio Code (code) 
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin/"
 
@@ -208,15 +217,36 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 # export PATH="/usr/local/Cellar/python@3.7/3.7.10_3/bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 # export PATH "/usr/bin/gcc:$PATH"
-export PATH="/opt/homebrew/Cellar/openjdk@11/11.0.10/bin:$PATH"
+# export PATH="/opt/homebrew/Cellar/openjdk@11/11.0.10/bin:$PATH"
 # export PATH="/opt/homebrew/opt/gradle@6/bin:$PATH"
 # export PATH="/opt/homebrew/opt/node@12/bin:$PATH"
+
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 
 source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
-export PATH="/usr/local/opt/python@3.7/bin:$PATH"
+export PYTHON37="/usr/local/opt/python@3.7/bin"
+export PYTHON38="/usr/local/Cellar/python@3.8/3.8.12_1/bin"
+export PATH=$PYTHON38:$PATH
+export PYTHON39=/usr/local/Cellar/python@3.9/3.9.7_1/bin
+export PATH="/usr/local/opt/node@14/bin:$PATH"
+#export PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:$PATH"
 
+# Java 8 Home 
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-8.jdk/Contents/Home
+# Artifactory environment 
+export ARTIFACTORY_USER=jrich
+export ARTIFACTORY_TOKEN=AKCp8k8EBC3784YpnzieR3gLiw2YncHN2dvjxuupENrWSfMYhrPWnWEPWZLbmzea6KzKUV7XD
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/jrich/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jrich/google-cloud-sdk/path.zsh.inc'; fi
 
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/jrich/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jrich/google-cloud-sdk/completion.zsh.inc'; fi
+
+# OCTAVIA CLI 0.39.1-alpha
+OCTAVIA_ENV_FILE=/Users/jrich/.octavia
+export OCTAVIA_ENABLE_TELEMETRY=False
+alias octavia="docker run -i --rm -v \$(pwd):/home/octavia-project --network host --env-file \${OCTAVIA_ENV_FILE} --user \$(id -u):\$(id -g) airbyte/octavia-cli:0.39.2-alpha"
