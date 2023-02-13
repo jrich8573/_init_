@@ -16,25 +16,25 @@ fi
 
 
 # path to Python 3.X
-# export PYTHONPATH3='/Users/jrich/anaconda'
+# export PYTHONPATH3='/Users/${USER}/anaconda'
 # export $PYTHONPATH3/bin:$PATH
 
 # path to Python 2.X
-# export PYTHONPATH2='/Users/jrich/anaconda2'
+# export PYTHONPATH2='/Users/${USER}/anaconda2'
 #export PATH="$PYTHONPATH2/bin:$PATH"
 
 # eval "$(scalaenv init -)"
 
 # path to cleanup command
-# export cleanup="/Users/jrich/shell/bash/cleanUp"
+# export cleanup="/Users/${USER}/shell/bash/cleanUp"
 # export PATH=$PATH:$CLEANUP
 
 # path the connection file
-# export con="/User/jrich/shell/bash/con"
+# export con="/User/${USER}/shell/bash/con"
 # export PATH=$PATH:$CON
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/jrich/.oh-my-zsh
+export ZSH=/Users/${USER}/.oh-my-zsh
 
 # Path to mysql shell installation.
 # export MYSQLPATH=/usr/local/mysql/bin
@@ -50,9 +50,9 @@ export ZSH=/Users/jrich/.oh-my-zsh
 # export PATH=$PATH:$GOROOT/bin
 
 # GOPATH Environment Variable
-# export GOPATH=/Users/jrich/go
+# export GOPATH=/Users/${USER}/go
 # export PATH=$PATH:$GOPATH/bin
-# export GOPATH=$GOPATH:/Users/jrich/code/go
+# export GOPATH=$GOPATH:/Users/${USER}/code/go
 
 
 # Set name of the theme to load.
@@ -63,8 +63,8 @@ export ZSH=/Users/jrich/.oh-my-zsh
 
 
 # C++ Boost root
-BOOST_ROOT=/usr/local/boost_1_79_0
-export PATH="$BOOST_ROOT/boost:$PATH"
+#BOOST_ROOT=/usr/local/boost_1_79_0
+#export PATH="$BOOST_ROOT/boost:$PATH"
 
  #Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -190,8 +190,8 @@ source ~/.shellrc
 export PATH="$PYTHONPATH3/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$PATH"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-#export SDKMAN_DIR="/Users/jrich/.sdkman"
-#[[ -s "/Users/jrich/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/jrich/.sdkman/bin/sdkman-init.sh"
+#export SDKMAN_DIR="/Users/${USER}/.sdkman"
+#[[ -s "/Users/${USER}/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/${USER}/.sdkman/bin/sdkman-init.sh"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 # eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"
@@ -204,10 +204,10 @@ export PATH="/usr/local/opt/openssl/bin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # The next line updates PATH for the Google Cloud SDK.
-#if [ -f '/Users/jrich/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jrich/google-cloud-sdk/path.zsh.inc'; fi
+#if [ -f '/Users/${USER}/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/${USER}/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-#if [ -f '/Users/jrich/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jrich/google-cloud-sdk/completion.zsh.inc'; fi
+#if [ -f '/Users/${USER}/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/${USER}/google-cloud-sdk/completion.zsh.inc'; fi
 #Add Visual Studio Code (code) 
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin/"
 
@@ -223,7 +223,7 @@ export PATH="/opt/homebrew/bin:$PATH"
 
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 
-source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
+source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
@@ -237,16 +237,19 @@ export PATH="/usr/local/opt/node@14/bin:$PATH"
 # Java 8 Home 
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-8.jdk/Contents/Home
 # Artifactory environment 
-export ARTIFACTORY_USER=jrich
-export ARTIFACTORY_TOKEN=AKCp8k8EBC3784YpnzieR3gLiw2YncHN2dvjxuupENrWSfMYhrPWnWEPWZLbmzea6KzKUV7XD
+#export ARTIFACTORY_USER=${USER}
+#export ARTIFACTORY_TOKEN=AKCp8k8EBC3784YpnzieR3gLiw2YncHN2dvjxuupENrWSfMYhrPWnWEPWZLbmzea6KzKUV7XD
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/jrich/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jrich/google-cloud-sdk/path.zsh.inc'; fi
+#if [ -f '/Users/${USER}/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/${USER}/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/jrich/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jrich/google-cloud-sdk/completion.zsh.inc'; fi
+#if [ -f '/Users/${USER}/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/${USER}/google-cloud-sdk/completion.zsh.inc'; fi
 
 # OCTAVIA CLI 0.39.1-alpha
-OCTAVIA_ENV_FILE=/Users/jrich/.octavia
-export OCTAVIA_ENABLE_TELEMETRY=False
-alias octavia="docker run -i --rm -v \$(pwd):/home/octavia-project --network host --env-file \${OCTAVIA_ENV_FILE} --user \$(id -u):\$(id -g) airbyte/octavia-cli:0.39.2-alpha"
+#OCTAVIA_ENV_FILE=/Users/${USER}/.octavia
+#export OCTAVIA_ENABLE_TELEMETRY=False
+#alias octavia="docker run -i --rm -v \$(pwd):/home/octavia-project --network host --env-file \${OCTAVIA_ENV_FILE} --user \$(id -u):\$(id -g) airbyte/octavia-cli:0.39.2-alpha"
+source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
+
+source /Users/jasonrich/.docker/init-zsh.sh || true # Added by Docker Desktop
