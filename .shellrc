@@ -21,7 +21,7 @@ alias o="open ."
 alias mk='make'
 alias mc='make clean'
 alias jol='java -jar ~/external-jars/jol-cli-0.14-full.jar'
-
+alias slack='~/.slack/bin/slack'
 # docker aliases
 
 
@@ -36,3 +36,6 @@ alias gs="ggpull && ggpush"
 
 # postgres server 
 # launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+#
+# gitlab PAT env var
+#export GITLAB_PAT = '~/.ssh/cdao_gitlab_pat'

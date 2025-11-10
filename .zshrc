@@ -5,23 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-#fi
-
-
-
-
-# path to Python 3.X
-# export PYTHONPATH3='/Users/${USER}/anaconda'
-# export $PYTHONPATH3/bin:$PATH
-
-# path to Python 2.X
-# export PYTHONPATH2='/Users/${USER}/anaconda2'
-#export PATH="$PYTHONPATH2/bin:$PATH"
 
 # eval "$(scalaenv init -)"
 
@@ -40,9 +23,6 @@ export ZSH=/Users/${USER}/.oh-my-zsh
 # export MYSQLPATH=/usr/local/mysql/bin
 # export PATH=$PATH:$MYSQLPATH
 
-# Groovy Home
-# export GROOVY_HOME=/usr/local/opt/groovy/libexec
-# export PATH=$PATH:$GROOVY_HOME
 
 
 #GOROOT Environment Variable
@@ -223,7 +203,7 @@ export PATH="/opt/homebrew/bin:$PATH"
 
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 
-source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
+# source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
@@ -235,7 +215,7 @@ export PATH="/usr/local/opt/node@14/bin:$PATH"
 #export PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:$PATH"
 
 # Java 8 Home 
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-8.jdk/Contents/Home
+export JAVA_HOME=/opt/homebrew/Cellar/openjdk/19.0.2
 # Artifactory environment 
 #export ARTIFACTORY_USER=${USER}
 #export ARTIFACTORY_TOKEN=AKCp8k8EBC3784YpnzieR3gLiw2YncHN2dvjxuupENrWSfMYhrPWnWEPWZLbmzea6KzKUV7XD
@@ -250,6 +230,31 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-8.jdk/Contents/Home
 #OCTAVIA_ENV_FILE=/Users/${USER}/.octavia
 #export OCTAVIA_ENABLE_TELEMETRY=False
 #alias octavia="docker run -i --rm -v \$(pwd):/home/octavia-project --network host --env-file \${OCTAVIA_ENV_FILE} --user \$(id -u):\$(id -g) airbyte/octavia-cli:0.39.2-alpha"
-source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
+#source /opt/homebrew/opt/powerlevel10k/powerl# evel10k.zsh-theme
 
-source /Users/jasonrich/.docker/init-zsh.sh || true # Added by Docker Desktop
+#source /Users/583551/.docker/init-zsh.sh || true # Added by Docker Desktop
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/583551/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+# Gitlab PAT
+export GITLAB_PAT=/User/583551/.ssh/cdao_gitlab_pat
+
+# launch Hashicorp Vault on startup
+# source /Users/583551/code/launch.sh
+# set the jenv init eval 
+# export PATH="/usr/local/opt/openjdk/bin:PATH"
+# export PATH="$HOME/.jenv/bin:$PATH"
+# eval "$(jenv init -)"
+
+
+# Created by `pipx` on 2023-03-07 21:36:41
+# export PATH="$PATH:/Users/583551/.local/bin"
+source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+chruby ruby-3.4.1
+source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+chruby ruby-3.4.1
+export GEM="/Users/583551/.gem/ruby/3.4.0/bin"
