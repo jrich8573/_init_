@@ -218,7 +218,6 @@ export PATH="/usr/local/opt/node@14/bin:$PATH"
 export JAVA_HOME=/opt/homebrew/Cellar/openjdk/19.0.2
 # Artifactory environment 
 #export ARTIFACTORY_USER=${USER}
-#export ARTIFACTORY_TOKEN=AKCp8k8EBC3784YpnzieR3gLiw2YncHN2dvjxuupENrWSfMYhrPWnWEPWZLbmzea6KzKUV7XD
 
 # The next line updates PATH for the Google Cloud SDK.
 #if [ -f '/Users/${USER}/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/${USER}/google-cloud-sdk/path.zsh.inc'; fi
